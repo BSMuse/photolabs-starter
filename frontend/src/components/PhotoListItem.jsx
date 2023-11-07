@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import PhotoFavButton from "./PhotoFavButton";
 import useApplicationData from "hooks/useApplicationData";
 import "../styles/PhotoListItem.scss";
@@ -13,6 +13,7 @@ function PhotoListItem(props) {
   }
 
   const handlePhotoClick = () => {
+    console.log(favPhotos)
     setModal({
       ...showModal, 
       status: !showModal.status,
@@ -24,9 +25,18 @@ function PhotoListItem(props) {
       location: location,
       favPhotos: favPhotos,
       setFavPhotos: setFavPhotos
-    })
-    console.log(showModal)
+    });
 }
+
+useEffect(() => {
+  // Check if the current photo's ID is in the favPhotos array
+  if (Array.isArray(favPhotos) && favPhotos.length > 0) {
+    console.log('Loading');
+    setSelected(Array.isArray(favPhotos) && favPhotos.includes(id));
+  } else {
+    console.log('FavPhotos:', favPhotos);
+  }
+}, [favPhotos, id]);
 
 
   return (

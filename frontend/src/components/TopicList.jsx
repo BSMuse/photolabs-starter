@@ -1,14 +1,14 @@
 import React from "react";
 import TopicListItem from "./TopicListItem";
-import topics from "mocks/topics";
 import "../styles/TopicList.scss";
+import useApplicationData from "hooks/useApplicationData";
 
 const TopicList = () => { 
 
-const data = topics
+const { topicData } = useApplicationData();
   
   const topicArray = () => { 
-    return data.map((topic) => {
+    return topicData.map((topic) => {
       return <TopicListItem key={topic.id} title={topic.title} />;
     });
   }

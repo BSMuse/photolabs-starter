@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import photos from 'mocks/photos';
-// import topics from 'mocks/topics';
 
 function useApplicationData() {
   const [photoData, setPhotoData] = useState([]);
@@ -16,8 +14,6 @@ function useApplicationData() {
     profile: null,
     username: null,
     location: { city: 'City Name', country: 'Country Name' }, // Initialize location properly
-    favPhotos: [],
-    setFavPhotos: () => {} // Initialize this properly too
   })
 
   useEffect(() => {
@@ -41,7 +37,6 @@ function useApplicationData() {
       .then((data) => {
         // Set the fetched data to the photoData state variable
         setTopicData(data)
-        // console.log(photoData)
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
@@ -51,6 +46,7 @@ function useApplicationData() {
   const handleFavClick = (id, setFavPhotos) => {
     !selected ? setFavPhotos( prev =>  [...prev,id]) : setFavPhotos(prev => prev.filter((prevId) => prevId !== id ))
     setSelected(!selected)
+    console.log(topicData, 'topicData')
   }
 
   const handleCloseClick = () => {
@@ -68,7 +64,6 @@ function useApplicationData() {
     setModal,
     handleFavClick,
     handleCloseClick,
-    photos,
     setSelected, 
     selected, 
     photoData, 

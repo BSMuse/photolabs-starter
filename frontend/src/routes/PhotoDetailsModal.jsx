@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoFavButton from 'components/PhotoFavButton';
@@ -7,10 +7,8 @@ import PhotoListItem from 'components/PhotoListItem';
 
 const PhotoDetailsModal = (props) => {
   const { showModal, handleCloseClick } = props;
-  const { imageFull, profile, username, location, id, setFavPhotos } = showModal;
-  const { selected, handleFavClick, photoData } = useApplicationData();
-
-  console.log(photoData);
+  const { imageFull, profile, username, location, id, setFavPhotos, favPhotos } = showModal;
+  const { selected, setSelected, handleFavClick, photoData } = useApplicationData();
 
   const renderSimilarPhotos = (photos, id) => {
     const similarPhotos = photos.find((photo) => photo.id === id).similar_photos;
@@ -34,6 +32,16 @@ const PhotoDetailsModal = (props) => {
       </div>
     );
   };
+
+  useEffect(() => {
+    // Check if the current photo's ID is in the favPhotos array
+    if (Array.isArray(favPhotos) && favPhotos.length > 0) {
+      console.log('Loading');
+      setSelected(Array.isArray(favPhotos) && favPhotos.includes(id));
+    } else {
+      console.log('FavPhotos:', favPhotos);
+    }
+  }, [favPhotos, id]);
 
   // Conditionally render based on the availability of photoData
   if (photoData.length === 0) {
