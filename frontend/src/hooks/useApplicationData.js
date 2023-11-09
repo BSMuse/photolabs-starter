@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function useApplicationData() {
+  // State variables
   const [photoData, setPhotoData] = useState([]);
   const [topicData, setTopicData] = useState([]);
   const [topicSelect, setTopic] = useState('');
@@ -17,6 +18,7 @@ function useApplicationData() {
     location: { city: 'City Name', country: 'Country Name' }
   });
 
+  // Fetch photos data from the server
   useEffect(() => {
     fetch('http://localhost:8001/api/photos')
       .then((response) => response.json())
@@ -28,6 +30,7 @@ function useApplicationData() {
       });
   }, []);
 
+  // Fetch topics data from the server
   useEffect(() => {
     fetch('http://localhost:8001/api/topics')
       .then((response) => response.json())
@@ -39,6 +42,7 @@ function useApplicationData() {
       });
   }, []);
 
+  // Function to handle adding/removing photos to/from favorites
   const handleFavClick = (id, setFavPhotos) => {
     !selected
       ? setFavPhotos((prev) => [...prev, id])
@@ -46,6 +50,7 @@ function useApplicationData() {
     setSelected(!selected);
   }
 
+  // Function to close the modal
   const handleCloseClick = () => {
     setPhotoData(photoData);
     setModal({
@@ -54,22 +59,21 @@ function useApplicationData() {
     });
   };
 
+  // Function to navigate to a specific topic and fetch its photos
   const navigateToTopic = (id) => {
-    // setTopic(id);
-    console.log(photoData)
     const apiUrl = `http://localhost:8001/api/topics/photos/${id}`;
 
-      fetch(apiUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          setPhotoData(data);
-        })
-        .catch((error) => {
-          console.error('Error fetching photos:', error);
-        });
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setPhotoData(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching photos:', error);
+      });
   };
 
-
+  // Return the public interface of this custom hook
   return {
     favPhotos,
     setFavPhotos,
