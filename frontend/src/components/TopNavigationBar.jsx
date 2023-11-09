@@ -13,7 +13,7 @@ const TopNavigation = (props) => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList />
+      <TopicList topicData={props.topicData} navigateToTopic = { props.navigateToTopic }/>
       <FavIcon selected={true} havePhotos={havePhotos} />
     </div>
   );

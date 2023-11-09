@@ -1,15 +1,12 @@
 import React from "react";
 import TopicListItem from "./TopicListItem";
 import "../styles/TopicList.scss";
-import useApplicationData from "hooks/useApplicationData";
 
-const TopicList = () => { 
-
-const { topicData } = useApplicationData();
+const TopicList = (props) => { 
   
   const topicArray = () => { 
-    return topicData.map((topic) => {
-      return <TopicListItem key={topic.id} title={topic.title} />;
+    return props.topicData.map((topic) => {
+      return <TopicListItem key={topic.id} title={topic.title} id ={topic.id} navigateToTopic = {props.navigateToTopic}/>;
     });
   }
 

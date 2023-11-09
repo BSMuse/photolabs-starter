@@ -1,42 +1,86 @@
-# Photolabs API
+# PhotoLabs Application
 
-## Setup
+PhotoLabs is a photography management platform built using React for the frontend and a Node.js/Express backend. The application allows users to explore and manage photos, view details, mark favorites, and explore various photography topics.
 
-Install dependencies with `npm install`.
+## Table of Contents
+- [Overview](#overview)
+- [Frontend](#frontend)
+- [Backend](#backend)
+- [Getting Started](#getting-started)
+- [Dependencies](#dependencies)
+- [Usage](#usage)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [License](#license)
 
-## Creating The DB
+## Overview
 
-Use the `psql -U labber` command to login to the PostgreSQL server with the username `labber` and the password `labber`. This command **MUST** be run in a vagrant terminal, we are using the PostgreSQL installation provided in the vagrant environment. M1/M2 and WSL2 users can execute this command in their terminal.
+The PhotoLabs application is designed to help users explore and manage a wide range of photos. It provides an interactive user interface that makes it easy to view photos, mark favorites, and learn about different photography topics. The application is separated into frontend and backend components.
 
-Create a database with the command `CREATE DATABASE photolabs_development;`.
+## Frontend
 
-Copy the `.env.example` file to `.env.development` and fill in the necessary PostgreSQL configuration. The `node-postgres` library uses these environment variables by default.
+The frontend component of the PhotoLabs application is built using React, a popular JavaScript library for building user interfaces. It provides a user-friendly experience for exploring and interacting with photos.
 
-```
-PGHOST=localhost
-PGUSER=labber
-PGDATABASE=photolabs_development
-PGPASSWORD=labber
-PGPORT=5432
-```
+### Getting Started
 
-## Seeding
+To get started with the PhotoLabs frontend application, follow these steps:
 
-Run a the development server with `npm start` in the Host environment. We are only using vagrant for `psql` this week.
+1. Clone the frontend repository to your local machine.
+2. Install the required dependencies using `npm install`.
+3. Start the development server using `npm start`.
+4. Open the application in your web browser at `http://localhost:3000`.
 
-Both of these achieve the same result.
+### Dependencies
 
-- Make a `GET` request to `/api/debug/reset` with `curl http://localhost:8001/api/debug/reset`.
-- Use the browser to navigate to `http://localhost:8001/api/debug/reset`.
+The frontend application relies on the following dependencies:
 
-## Run The Server
+- `react`: The core library for building user interfaces in React.
+- `react-dom`: Provides methods for working with the DOM (Document Object Model) in React applications.
+- `react-scripts`: Contains scripts and configuration for building and running the React application.
+- `web-vitals`: A library for measuring web performance.
+- `sass`: A CSS preprocessor used for styling.
 
-Running the server normally
-```sh
-npm start
-```
+## Backend
 
-Running the server so it returns an error when saving/deleting for testing the client's error handling capabilities
-```sh
-npm run error
-```
+The backend component of the PhotoLabs application is built using Node.js and Express, providing the necessary API endpoints for the frontend application to interact with.
+
+### Getting Started
+
+To get started with the PhotoLabs backend server, follow these steps:
+
+1. Clone the backend repository to your local machine.
+2. Install the required dependencies using `npm install`.
+3. Start the server using `npm start`.
+4. The server will be available at the specified port (default: `http://localhost:8001`).
+
+### Dependencies
+
+The backend server relies on the following dependencies:
+
+- `body-parser`: Middleware for parsing incoming request bodies.
+- `cors`: Middleware for enabling Cross-Origin Resource Sharing.
+- `dotenv`: Loading environment variables from a `.env` file.
+- `express`: A web application framework for Node.js.
+- `helmet`: Middleware for securing HTTP headers.
+- `pg`: A PostgreSQL client for Node.js.
+- `socket.io`: A library for adding real-time features to applications.
+- `ws`: A simple WebSocket implementation.
+
+## Features
+
+The PhotoLabs application provides a range of features, including:
+
+- Viewing a list of photos.
+- Marking photos as favorites.
+- Exploring various photography topics.
+- Viewing detailed information about individual photos.
+- Real-time updates for new photos.
+
+## Screenshots
+
+![Screenshot of the PhotoLabs frontend](path/to/screenshot.png)
+![Another screenshot of the PhotoLabs frontend](path/to/another-screenshot.png)
+
+## License
+
+This project is licensed under the ISC License.
