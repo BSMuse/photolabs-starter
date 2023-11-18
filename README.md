@@ -78,10 +78,10 @@ The PhotoLabs application provides a range of features, including:
 
 ## Screenshots
 
-!["Screenshot of home screen"](https://github.com/BSMuse/photo-labs/blob/master/docs/photolabs_home.png)
-!["Screenshot of modal](https://github.com/BSMuse/photo-labs/blob/master/docs/photolabs_modal.png)
-!["Screenshot of category switch"](https://github.com/BSMuse/photo-labs/blob/master/docs/photolabs_animals.png)
-!["Screenshot of category switch"](https://github.com/BSMuse/photo-labs/blob/master/docs/photolabs_nature.png)
+!["Screenshot of home screen"](https://github.com/BSMuse/photolabs-starter/blob/master/docs/photolabs_home.png)
+!["Screenshot of modal](https://github.com/BSMuse/photolabs-starter/blob/master/docs/photolabs_modal.png)
+!["Screenshot of category switch"](https://github.com/BSMuse/photolabs-starter/blob/master/docs/photolabs_animals.png)
+!["Screenshot of category switch"](https://github.com/BSMuse/photolabs-starter/blob/master/docs/photolabs_nature.png)
 
 ## License
 
