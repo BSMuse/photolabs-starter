@@ -1,5 +1,4 @@
-// Inside HomeRoute.js
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 import PhotoDetailsModal from './PhotoDetailsModal';
@@ -7,13 +6,45 @@ import useApplicationData from 'hooks/useApplicationData';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = () => {
-  const { favPhotos, setFavPhotos, showModal, setModal, handleCloseClick, photoData, topicData, navigateToTopic } = useApplicationData();
+  const {
+    favPhotos,
+    setFavPhotos,
+    showModal,
+    setModal,
+    handleFavClick,
+    handleCloseClick,
+    handlePhotoClick,
+    photoData,
+    topicData,
+    navigateToTopic,
+  } = useApplicationData();
+
+  const topNavigationProps = {
+    favPhotos,
+    topicData,
+    navigateToTopic,
+  };
+
+  const photoListProps = {
+    data: photoData,
+    favPhotos,
+    setFavPhotos,
+    showModal,
+    setModal,
+    handleFavClick,
+    handlePhotoClick
+  };
 
   return (
     <div className="home-route">
-      <TopNavigation favPhotos={favPhotos} topicData ={topicData} navigateToTopic={navigateToTopic}/>
-      {showModal.status && <PhotoDetailsModal showModal={showModal} setModal={setModal} setFavPhotos={setFavPhotos} handleCloseClick={handleCloseClick} />}
-      <PhotoList data={photoData} favPhotos={favPhotos} setFavPhotos={setFavPhotos} showModal={showModal} setModal={setModal} />
+      <TopNavigation {...topNavigationProps} />
+      {showModal.status && (
+        <PhotoDetailsModal
+        {...photoListProps}
+        handleCloseClick={handleCloseClick}
+      />
+      )}
+      <PhotoList {...photoListProps} />
     </div>
   );
 };

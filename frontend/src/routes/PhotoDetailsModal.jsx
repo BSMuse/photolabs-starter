@@ -2,13 +2,11 @@ import React, {useEffect} from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoFavButton from 'components/PhotoFavButton';
-import useApplicationData from 'hooks/useApplicationData';
 import PhotoListItem from 'components/PhotoListItem';
 
 const PhotoDetailsModal = (props) => {
-  const { showModal, handleCloseClick } = props;
-  const { imageFull, profile, username, location, id, setFavPhotos, favPhotos } = showModal;
-  const { selected, setSelected, handleFavClick, photoData } = useApplicationData();
+  const { showModal, handleCloseClick, handleFavClick, data } = props;
+  const { imageFull, profile, username, location, id } = showModal;
 
   const renderSimilarPhotos = (photos, id) => {
     const similarPhotos = photos.find((photo) => photo.id === id).similar_photos;
@@ -25,7 +23,9 @@ const PhotoDetailsModal = (props) => {
               profile={photo.user.profile}
               username={photo.user.username}
               location={photo.location}
-              setFavPhotos={setFavPhotos} 
+              favPhotos={props.favPhotos}
+              handleFavClick={props.handleFavClick}
+              selected= {props.favPhotos.includes(photo.id)}
             />
           ))}
         </div>
@@ -33,18 +33,8 @@ const PhotoDetailsModal = (props) => {
     );
   };
 
-  useEffect(() => {
-    // Check if the current photo's ID is in the favPhotos array
-    if (Array.isArray(favPhotos) && favPhotos.length > 0) {
-      console.log('Loading');
-      setSelected(Array.isArray(favPhotos) && favPhotos.includes(id));
-    } else {
-      console.log('FavPhotos:', favPhotos);
-    }
-  }, [favPhotos, id]);
-
-  // Conditionally render based on the availability of photoData
-  if (photoData.length === 0) {
+  // Conditionally render based on the availability of data
+  if (data.length === 0) {
     return <div className="photo-details-modal">Loading...</div>; // Render a loading indicator or message.
   } else {
     return (
@@ -53,7 +43,7 @@ const PhotoDetailsModal = (props) => {
           <img src={closeSymbol} alt="close symbol" />
         </button>
         <div className="photo-details-modal_user-photo_container">
-          <PhotoFavButton selected={selected} onClick={() => handleFavClick(id, setFavPhotos)} />
+          <PhotoFavButton selected={props.favPhotos.includes(id)} onClick={() => handleFavClick(id)} />
           <img src={imageFull} 
             className="photo-details-modal__image" 
             alt="Photo"   
@@ -71,7 +61,7 @@ const PhotoDetailsModal = (props) => {
           </div>
         </div>
         <div className='photo-details-modal_similar-photos'>
-          {renderSimilarPhotos(photoData, showModal.id)}
+          {renderSimilarPhotos(data, showModal.id)}
         </div>
       </div>
     );
