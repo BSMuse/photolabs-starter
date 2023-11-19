@@ -57,7 +57,7 @@ function useApplicationData() {
 
   // Fetch photos data from the server
   useEffect(() => {
-    fetch('http://localhost:8001/api/photos')
+    fetch(process.env.REACT_APP_PHOTOS_URL)
       .then((response) => response.json())
       .then((data) => {
         dispatch({ type: actionTypes.SET_PHOTO_DATA, payload: data });
@@ -69,7 +69,7 @@ function useApplicationData() {
 
   // Fetch topics data from the server
   useEffect(() => {
-    fetch('http://localhost:8001/api/topics')
+    fetch(process.env.REACT_APP_TOPICS_URL)
       .then((response) => response.json())
       .then((data) => {
         dispatch({ type: actionTypes.SET_TOPIC_DATA, payload: data });
