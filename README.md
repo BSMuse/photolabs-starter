@@ -20,9 +20,9 @@ The PhotoLabs application is designed to help users explore and manage a wide ra
 ### Getting Started
 
 1. Clone the repository to your local machine.
-2. Create an .env file and copy pat the following values: 
-  REACT_APP_PHOTOS_URL=/api/photos
-  REACT_APP_TOPICS_URL=/api/topics
+2. Create an .env file and copy paste the following values: 
+  - REACT_APP_PHOTOS_URL=/api/photos
+  - REACT_APP_TOPICS_URL=/api/topics
 
 ## Frontend
 
@@ -30,10 +30,9 @@ The frontend component of the PhotoLabs application is built using React, a popu
 
 To get started with the PhotoLabs frontend application, follow these steps:
 
-1. Clone the frontend repository to your local machine.
-2. Install the required dependencies using `npm install`.
-3. Start the development server using `npm start`.
-4. Open the application in your web browser at `http://localhost:3000`.
+1. Install the required dependencies using `npm install`.
+2. Start the development server using `npm start`.
+3. Open the application in your web browser at `http://localhost:3000`.
 
 ### Dependencies
 
@@ -51,10 +50,9 @@ The backend component of the PhotoLabs application is built using Node.js and Ex
 
 To get started with the PhotoLabs backend server, follow these steps:
 
-1. Clone the backend repository to your local machine.
-2. Install the required dependencies using `npm install`.
-3. Start the server using `npm start`.
-4. The server will be available at the specified port (default: `http://localhost:8001`).
+1. Install the required dependencies using `npm install`.
+2. Start the server using `npm start`.
+3. The server will be available at the specified port (default: `http://localhost:8001`).
 
 ### Dependencies
 
