@@ -17,11 +17,16 @@ PhotoLabs is a photography management platform built using React for the fronten
 
 The PhotoLabs application is designed to help users explore and manage a wide range of photos. It provides an interactive user interface that makes it easy to view photos, mark favorites, and learn about different photography topics. The application is separated into frontend and backend components.
 
+### Getting Started
+
+1. Clone the repository to your local machine.
+2. Create an .env file and copy pat the following values: 
+  REACT_APP_PHOTOS_URL=/api/photos
+  REACT_APP_TOPICS_URL=/api/topics
+
 ## Frontend
 
 The frontend component of the PhotoLabs application is built using React, a popular JavaScript library for building user interfaces. It provides a user-friendly experience for exploring and interacting with photos.
-
-### Getting Started
 
 To get started with the PhotoLabs frontend application, follow these steps:
 
@@ -43,8 +48,6 @@ The frontend application relies on the following dependencies:
 ## Backend
 
 The backend component of the PhotoLabs application is built using Node.js and Express, providing the necessary API endpoints for the frontend application to interact with.
-
-### Getting Started
 
 To get started with the PhotoLabs backend server, follow these steps:
 
@@ -78,10 +81,10 @@ The PhotoLabs application provides a range of features, including:
 
 ## Screenshots
 
-!["Screenshot of home screen"](https://github.com/BSMuse/photolabs-starter/blob/master/docs/photolabs_home.png)
-!["Screenshot of modal](https://github.com/BSMuse/photolabs-starter/blob/master/docs/photolabs_modal.png)
-!["Screenshot of category switch"](https://github.com/BSMuse/photolabs-starter/blob/master/docs/photolabs_animals.png)
-!["Screenshot of category switch"](https://github.com/BSMuse/photolabs-starter/blob/master/docs/photolabs_nature.png)
+!["Screenshot of home screen"](https://github.com/BSMuse/photolabs-starter/blob/main/docs/photolabs_home.png?raw=true)
+!["Screenshot of modal](https://github.com/BSMuse/photolabs-starter/blob/main/docs/photolabs_modal.png?raw=true)
+!["Screenshot of category switch"](https://github.com/BSMuse/photolabs-starter/blob/main/docs/photolabs_animals.png?raw=true)
+!["Screenshot of category switch"](https://github.com/BSMuse/photolabs-starter/blob/main/docs/photolabs_nature.png?raw=true)
 
 ## License
 

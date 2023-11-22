@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoFavButton from 'components/PhotoFavButton';
@@ -7,6 +7,7 @@ import PhotoListItem from 'components/PhotoListItem';
 const PhotoDetailsModal = (props) => {
   const { showModal, handleCloseClick, handleFavClick, data } = props;
   const { imageFull, profile, username, location, id } = showModal;
+  const nullFunction = () => null;
 
   const renderSimilarPhotos = (photos, id) => {
     const similarPhotos = photos.find((photo) => photo.id === id).similar_photos;
@@ -25,6 +26,7 @@ const PhotoDetailsModal = (props) => {
               location={photo.location}
               favPhotos={props.favPhotos}
               handleFavClick={props.handleFavClick}
+              handlePhotoClick={nullFunction}
               selected= {props.favPhotos.includes(photo.id)}
             />
           ))}
